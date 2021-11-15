@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Product Details{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Product: {{product.title}}</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{product.image.url}}" alt="" class="img-fluid">
+        </div>
+        
+        <div class="col-md-4 ">
+            <h4> Title: {{product.title}} (Viewed: {{product.view_count}})</h4>
+            <h5>Category: {{product.Category}}</h5>
+            <h5>Price: <strike> Rs.{{product.marked_price}}</strike> Rs.{{product.selling_price}}</h5>
+            <a href="{% url 'home:addtocart' product.id %}" class="btn btn-info"> Add To Cart</a>
+            <hr>
+            <p class="text-info"></p>Warrenty: {{product.warranty}} </p>
+            <p class="text_info">Return Policy: {{product.return_policy}}</p>
+            <hr>
+            <p>Description: {{product.description}}</p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
